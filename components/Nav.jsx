@@ -35,12 +35,7 @@ const Nav = () => {
           />
           <NavItem
             path={"/about"}
-            title={"About"}
-            func={() => setMenu(false)}
-          />
-          <NavItem
-            path={"/contact"}
-            title={"Contact"}
+            title={"About/Contact"}
             func={() => setMenu(false)}
           />
         </ul>

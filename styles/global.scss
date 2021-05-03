@@ -160,6 +160,80 @@
 }
 
 /* ------- End Posts Detail ------- */
+
+/* ------- About Page ------- */
+
+.about {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex: 1;
+  flex-wrap: wrap;
+  width: 100%;
+  padding: 40px 20px 40px 20px;
+  height: -webkit-fill-available;
+  height: 100vh;
+  #{&}__container {
+    max-width: 1000px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    flex-wrap: wrap;
+  }
+  #{&}__col {
+    text-align: center;
+    min-width: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+  }
+  #{&}__col__container {
+    padding: 20px;
+  }
+  #{&}__col__description {
+    margin-bottom: 5px;
+    & > * {
+      padding: 5px 0px;
+    }
+  }
+  #{&}__image {
+    min-width: 400px;
+    max-height: 600px;
+    width: 80%;
+    height: auto;
+  }
+  #{&}__language__list {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    padding: 10px 0px;
+    margin-bottom: 5px;
+    & > :nth-child(2) {
+      padding-left: 40px;
+      padding-right: 40px;
+    }
+    & > ul > li {
+      padding: 2.5px 0px;
+    }
+  }
+  #{&}__getInTouch {
+    & > h3 {
+      margin-bottom: 10px;
+    }
+    & p > a {
+      cursor: pointer;
+      color: lighten($link, 10%);
+      text-decoration: none;
+    }
+  }
+}
+
+/* ------- End About Page ------- */
+
 .hidden {
   display: none;
 }
