@@ -1,0 +1,37 @@
+.hero__button {
+  padding: spacing(regular) spacing(regular);
+  font-size: 1.2em;
+  color: $primary;
+  border-radius: 4px;
+  background-color: unset;
+  border: 1px solid $primary;
+  cursor: pointer;
+  margin: spacing(regular) 0;
+  position: relative;
+  z-index: 1;
+  transition: 0.3s all ease-out;
+  &:hover {
+    color: $light;
+  }
+}
+.hero__button::before {
+  transition: 0.2s all ease;
+  position: absolute;
+  top: 0;
+  left: 0%;
+  right: 100%;
+  bottom: 0;
+  opacity: 0;
+  content: " ";
+  background-color: $primary;
+}
+.hero__button:hover::before {
+  transition: 0.2s all ease;
+  left: 0;
+  right: 0;
+  opacity: 1;
+  z-index: -1;
+}
+.hero__button:active {
+  transform: scale(0.98);
+}

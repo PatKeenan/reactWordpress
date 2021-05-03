@@ -1,0 +1,168 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap");
+@import "./scss/functions"; //make sure functions stay towards the top
+@import "./scss/resets";
+@import "./scss/mixins";
+@import "./scss/variables";
+@import "./scss/base";
+@import "./scss/components/registerComponents";
+
+//mobile first
+
+/* ------- Home Page ------- */
+.home__container {
+  display: grid;
+  place-items: center;
+  min-height: -webkit-fill-available;
+  height: 100vh;
+}
+.home__hero {
+  text-transform: capitalize;
+  //hero title
+  #{&}__title {
+    font-size: 2em;
+    margin-bottom: spacing(small);
+  }
+  #{&}__subtitle {
+    margin-bottom: spacing(small);
+  }
+  @include breakPointIpad {
+    #{&}__title {
+      font-size: 2.5em;
+    }
+    #{&}__subtitle {
+      font-size: 1.3em;
+    }
+  }
+  @include breakPointLaptop {
+    padding: spacing(regular);
+    #{&}__title {
+      font-size: 3em;
+    }
+    #{&}__subtitle {
+      font-size: 1.7em;
+    }
+  }
+}
+.home__button__and__icons {
+  user-select: none;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.home__icon__group > a > * {
+  font-size: 30px;
+  margin: 0 10px;
+  cursor: pointer;
+  fill: $link !important;
+  @include hover-transition;
+  &:hover {
+    transform: scale(1.1);
+  }
+}
+.home__icon__group::before {
+  margin-left: 20px;
+  content: "";
+}
+
+.home__footer {
+  position: absolute;
+  text-align: center;
+  font-size: 0.75em;
+  user-select: none;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  & .accent {
+    color: $link;
+  }
+}
+/* ------- End Home Page ------- */
+
+/* -------  Posts Page ------- */
+.posts {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 40px 10px 40px 10px;
+  @include breakPointIpad {
+    padding: 60px 10px 40px 10px;
+  }
+  #{&}__grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    @include breakPointIpad {
+      justify-content: unset;
+    }
+  }
+}
+
+/* ------- End Posts Page ------- */
+
+/* -------  Post Detail Page ------- */
+
+.postDetail {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 40px 20px 10px 20px;
+
+  #{&}__breadcrumb {
+    font-size: 0.9em !important;
+    padding: 10px 0px;
+    border-bottom: 1px solid rgba(29, 29, 29, 0.274);
+    margin-bottom: 20px;
+  }
+
+  #{&}__image > * {
+    max-height: 600px;
+  }
+  #{&}__image > * > img {
+    object-fit: cover !important;
+    object-position: center !important;
+  }
+
+  #{&}__content {
+    margin-top: 10px;
+    padding: 10px 0px;
+  }
+  #{&}__titleAnd__icons {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+    padding: 20px 0px;
+    border-bottom: 1px solid rgba(29, 29, 29, 0.274);
+  }
+  #{&}__icons > a {
+    font-size: 1.8em;
+    color: $link !important;
+  }
+  #{&}__icons > a:nth-child(even) {
+    margin-right: 10px;
+    margin-left: 10px;
+  }
+  #{&}__icons > a:nth-last-child(1) {
+    margin-right: 0px !important;
+  }
+
+  #{&}__content > p {
+    margin: 10px 0px;
+    line-height: 1.9 !important;
+  }
+  #{&}__content > p > a {
+    color: $link !important;
+    text-decoration: none;
+  }
+
+  #{&}__content > p > a:hover {
+    color: lighten($link, 20%) !important;
+    text-decoration: none;
+  }
+}
+
+/* ------- End Posts Detail ------- */
+.hidden {
+  display: none;
+}
+.flex {
+  display: flex;
+}

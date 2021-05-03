@@ -1,0 +1,22 @@
+@mixin flex-center($direction) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: $direction;
+}
+@mixin hover-transition {
+  transition: ease-in-out 150ms;
+}
+
+//break points
+@mixin breakPointIpad {
+  @media (min-width: 768px) {
+    @content;
+  }
+}
+
+@mixin breakPointLaptop {
+  @media (min-width: 1000px) {
+    @content;
+  }
+}

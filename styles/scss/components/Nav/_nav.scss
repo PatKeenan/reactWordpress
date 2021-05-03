@@ -1,0 +1,123 @@
+.nav__header {
+  padding: spacing(regular);
+  background-color: $light;
+  position: fixed;
+  align-content: center;
+  top: 0px;
+  right: 0;
+  left: 0;
+  user-select: none;
+  z-index: 50;
+}
+.return__home {
+  padding-left: 15px;
+}
+.menu {
+  padding: 10px 0px;
+  position: absolute;
+  height: 20px;
+  width: 28px;
+  cursor: pointer;
+  z-index: 99;
+  right: 20px;
+  @include breakPointIpad {
+    right: 30px;
+  }
+  top: 10px;
+  #{&}__burger {
+    position: absolute;
+    right: 0;
+    top: 8px;
+    width: 24px;
+    height: 2px;
+    background: lighten($link, 15%);
+    @include hover-transition;
+    &::before {
+      content: "";
+      position: absolute;
+      top: -6px;
+      right: 0;
+      width: 28px;
+      height: 2px;
+      background: $primary;
+      @include hover-transition;
+    }
+    &::after {
+      content: "";
+      position: absolute;
+      top: 6px;
+      right: 0;
+      width: 20px;
+      height: 2px;
+      background: $primary;
+      @include hover-transition;
+    }
+    &.openMenu {
+      transform: rotate(360deg) !important;
+      background: transparent;
+      &::before {
+        transform: rotate(45deg) translate(5px, 8px);
+        width: 24px;
+      }
+      &::after {
+        transform: rotate(-45deg) translate(1px, -3px);
+        width: 24px;
+      }
+    }
+  }
+}
+
+.nav {
+  display: flex;
+  flex-direction: row;
+  font-weight: 600;
+  z-index: 50;
+  #{&}__active {
+    color: $link;
+  }
+
+  //ul list
+  #{&}__list {
+    width: 0%;
+    opacity: 0;
+    @include hover-transition;
+    transform: translateX(0%);
+    display: flex;
+    flex-direction: row;
+    margin-left: auto;
+  }
+  #{&}__list > li:nth-child(n) {
+    margin-left: 10px;
+  }
+  #{&}__list > li:nth-last-child(1) {
+    margin-right: 10px;
+  }
+
+  //links
+  #{&}__list--item--link {
+    color: $primary;
+    &:hover {
+      color: #551a8b;
+    }
+  }
+  &.navOpen {
+    opacity: 1;
+    @include hover-transition;
+    & > ul {
+      @include hover-transition;
+      opacity: 1;
+      width: auto;
+      transform: translateX(-15%);
+      @include breakPointIpad {
+        transform: translateX(-20%);
+      }
+    }
+  }
+}
+//Hide name on left hand side on mobile so it doesnt overlap the menu
+.hideElement {
+  display: none;
+  @media (min-width: 425px) {
+    display: flex;
+  }
+}
